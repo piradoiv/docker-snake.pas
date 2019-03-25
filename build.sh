@@ -1,9 +1,12 @@
+#!/bin/sh
+set -e
+
 # Dependencies
 apt update
-DEBIAN_FRONTEND=noninteractive apt-get -yq git fpc
+DEBIAN_FRONTEND=noninteractive apt install -yq git fpc
 
 # Build
-git clone –depth 1 https://github.com/piradoiv/snake.pas.git /snake.pas
+git clone https://github.com/piradoiv/snake.pas.git /snake.pas
 cd /snake.pas && make
 mv /snake.pas/snake /snake
 
@@ -14,3 +17,4 @@ apt autoclean -q -y
 apt autoremove -q -y
 apt purge -q -y
 apt clean -y
+rm /build.sh
