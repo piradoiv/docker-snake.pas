@@ -4,7 +4,7 @@ FROM ubuntu:bionic
 # RUN sh /build.sh
 
 RUN apt update
-RUN DEBIAN_FRONTEND=noninteractive apt-get -yq git fpc
+RUN DEBIAN_FRONTEND=noninteractive apt install -yq git fpc
 
 # Build
 RUN git clone –depth 1 https://github.com/piradoiv/snake.pas.git /snake.pas
